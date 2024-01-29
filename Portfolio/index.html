@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio - Shaakier Railoun</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/abec25946a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="./images/Shaakier Railoun.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Software Developer</p>
+                <h1>Hello, I'm <span>Shaakier</span><br>Railoun from South Africa.</h1>
+            </div>
+        </div>
+    </div>
+
+    <!--About section-->
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="./images/Graduation picture.jpg">
+                </div>
+                
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>I'm Shaakier Railoun, a software developer from South Africa. I chose to become a software developer 
+                    because I'm passionate about coding, and I consider it to be my strongest skill.
+                    I graduated from Varsity College with a Bachelor's degree in Application Development and I am 
+                    currently doing an internship at Younglings Africa to gain valuable work experience.</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>SQL Databases</span><br>Built databases using SQL Server</li>
+                            <li><span>App Development</span><br>Building Desktop and Web Apps</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2023-current</span><br>Internship at Capaciti</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2020-2022</span><br>Bachelor of Computer and Information Sciences in Application Development at Varsity College</li>                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!--My Work-->
+
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="./images/CalculatorAppImg.PNG">
+                    <div class="layer">
+                        <h3>Calculator</h3>
+                        <p>This is a simple calcuator app that I made using JavaScript.</p>
+                        <a href="https://jstestcalculator.netlify.app"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="./images/WeatherAppImg.PNG">
+                    <div class="layer">
+                        <h3>Weather App</h3>
+                        <p>A weather app built using JavaScript that tells you the weather of the city that you type into the search bar.</p>
+                        <a href="https://shaakier-weatherapp.netlify.app"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="./images/VirtualKeyboardV1Img.PNG">
+                    <div class="layer">
+                        <h3>Virtual Keyboard V1</h3>
+                        <p>This is a prototype virtual keyboard that I have built using JavaScript.</p>
+                        <a href="https://virtualkeyboardv1.netlify.app"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Contact-->
+
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fas fa-paper-plane"></i>shaakier.railoun115@gmail.com</p>
+                    <p><i class="fas fa-phone-square-alt"></i>064 752 5222</p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/shaakier-railoun-28902523b/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <br>
+                        <a href="https://github.com/shakes115?tab=repositories"><i class="fab fa-github"></i> Github</a>
+                    </div>
+                    <a href="./Shaakier Railoun CV.docx" download class="button btn2">Download CV</a>
+                </div>
+                <div class="contact-right"></div>
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="button btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
+<script>
+
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+
+</script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxhQdOXYRXXS2JGftW-eyM76AF02eV5LMtj5rpc73bodxfpJKM6XpqsfR5pn8_txyf9Nw/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message Sent successfully!"
+        setTimeout(function(){
+            msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</body>
+</html>
