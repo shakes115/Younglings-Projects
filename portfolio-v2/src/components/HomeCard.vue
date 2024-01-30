@@ -19,7 +19,7 @@
             
             <div class="header-text">
                 <p>Software Developer</p>
-                <h1>Hello, I'm <span>Shaakier</span><br>Railoun from South Africa.</h1>
+                <h1><span>Hello, I'm Shaakier<br>Railoun from South Africa.</span></h1>
             </div>
         </div>
     </div>
@@ -77,7 +77,7 @@
                     <div class="layer">
                         <h3>Calculator</h3>
                         <p>This is a simple calcuator app that I made using JavaScript.</p>
-                        <a href="https://jstestcalculator.netlify.app"><font-awesome-icon :icon="['fas', 'external-link-alt']" /></a>
+                        <a href="https://jstestcalculator.netlify.app"><i class="fa-solid fa-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="work">
@@ -85,7 +85,7 @@
                     <div class="layer">
                         <h3>Weather App</h3>
                         <p>A weather app built using JavaScript that tells you the weather of the city that you type into the search bar.</p>
-                        <a href="https://shaakier-weatherapp.netlify.app"><font-awesome-icon :icon="['fas', 'external-link-alt']" /></a>
+                        <a href="https://shaakier-weatherapp.netlify.app"><i class="fa-solid fa-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="work">
@@ -106,7 +106,7 @@
         <div class="container">
             <div class="row">
                 <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
+                    <h1 class="sub-title" >Contact Me</h1>
                     <p><i class="fas fa-paper-plane"></i>shaakier.railoun115@gmail.com</p>
                     <p><i class="fas fa-phone-square-alt"></i>064 752 5222</p>
                     <div class="social-icons">
@@ -114,7 +114,7 @@
                         <br>
                         <a href="https://github.com/shakes115?tab=repositories"><i class="fab fa-github"></i> Github</a>
                     </div>
-                    <a href="./Shaakier Railoun CV.docx" download class="button btn2">Download CV</a>
+                    <a href="../assets/Shaakier Railoun CV.docx" download class="button btn2">Download CV</a>
                 </div>
                 <div class="contact-right"></div>
                 <form name="submit-to-google-sheet">
@@ -154,6 +154,7 @@ export default {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
+    font-weight: 600;
 }
 
  /* CSS for small screens*/
@@ -282,9 +283,10 @@ nav ul li a:hover::after{
 .header-text h1{
     font-size: 60px;
     margin-top: 20px;
+    font-weight: 600;
 }
 .header-text h1 span{
-    color: #00ff5e;
+    color: white;
 }
 
 /*About section */
@@ -469,6 +471,7 @@ nav ul li a:hover::after{
 .button.btn2{
     display: inline-block;
     background: black;
+   
 }
 .button.btn2:hover{
     background: #00ff5e;
