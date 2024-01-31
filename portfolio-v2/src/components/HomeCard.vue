@@ -91,7 +91,7 @@
                 <div class="work">
                     <img src="../assets/VirtualKeyboardV1Img.png">
                     <div class="layer">
-                        <h3>Virtual Keyboard V1</h3>
+                        <h3>Virtual Keyboard V1</h3>   
                         <p>This is a prototype virtual keyboard that I have built using JavaScript.</p>
                         <a href="https://virtualkeyboardv1.netlify.app"><i class="fa-solid fa-up-right-from-square"></i></a>
                     </div>
