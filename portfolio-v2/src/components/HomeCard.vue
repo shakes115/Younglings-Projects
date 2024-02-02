@@ -6,17 +6,27 @@
         </head>
         <div id="header">
         <div class="container">
-            <nav>
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">My Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <i class="fas fa-times" onclick="closemenu()"></i>
+            <!-- Navbar for regular screens -->
+            <div class="navbar">
+                <ul>
+                <li><router-link to="/header" @click="scrollToSection('header')" class="link">Home</router-link></li>
+                <li><router-link to="/about" @click="scrollToSection('about')" class="link">About</router-link></li>
+                <li><router-link to="/portfolio" @click="scrollToSection('portfolio')" class="link">My Work</router-link></li>
+                <li><router-link to="/contact" @click="scrollToSection('contact')" class="link">Contact Me</router-link></li>
                 </ul>
-                <i class="fas fa-bars" onclick="openmenu()"></i>
-            </nav>
-            
+                <!-- Toggle button for small screens -->
+             <button @click="toggleSideMenu()" class="toggle-button">☰</button>    
+            </div>
+             
+            <!-- Side menu for small screens -->
+            <div v-if="showSideMenu" class="sidemenu">
+                <ul>
+                <li><router-link to="/" @click="scrollToSection('home')">Home</router-link></li>
+                <li><router-link to="/about" @click="scrollToSection('about')">About</router-link></li>
+                <li><router-link to="/mywork" @click="scrollToSection('mywork')">My Work</router-link></li>
+                <li><router-link to="/contact" @click="scrollToSection('contact')">Contact Me</router-link></li>
+            </ul>
+            </div>
             <div class="header-text">
                 <p>Software Developer</p>
                 <h1><span>Hello, I'm Shaakier<br>Railoun from South Africa.</span></h1>
@@ -100,13 +110,13 @@
         </div>
     </div>
 
-    <!--Contact-->
+    <!--Contact Me-->
 
     <div id="contact">
         <div class="container">
             <div class="row">
                 <div class="contact-left">
-                    <h1 class="sub-title" >Contact Me</h1>
+                    <h1 class="sub-title">Contact Me</h1>
                     <p><i class="fas fa-paper-plane"></i>shaakier.railoun115@gmail.com</p>
                     <p><i class="fas fa-phone-square-alt"></i>064 752 5222</p>
                     <div class="social-icons">
@@ -114,7 +124,7 @@
                         <br>
                         <a href="https://github.com/shakes115?tab=repositories"><i class="fab fa-github"></i> Github</a>
                     </div>
-                    <a href="../assets/Shaakier Railoun CV.docx" download class="button btn2">Download CV</a>
+                    <a href="/Shaakier Railoun CV.docx" download class="button btn2">Download CV</a>
                 </div>
                 <div class="contact-right"></div>
                 <form name="submit-to-google-sheet">
@@ -128,18 +138,37 @@
         </div>
     </div>
     </div>
-    
+    <router-view></router-view>
 </template>
 
+<!--Scripts-->
 <script>
 export default {
     name: 'HomeCard',
-}
+    data() {
+    return {
+        showSideMenu: false,
+    };
+  },
+  methods:{
+    toggleSideMenu() {
+      this.showSideMenu = !this.showSideMenu;
+    },
+    scrollToSection(sectionId) {
+      const sectionElement = document.getElementById(sectionId);
+
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  },
+};
 
 </script>
 
-
+ 
 <style scoped>
+/*General styling for the whole webpage*/ 
     .MainContainer{
         width: 100%;
         min-height: 100vh;
@@ -157,26 +186,67 @@ export default {
     font-weight: 600;
 }
 
- /* CSS for small screens*/
-nav .fas{
-    display: none;
-}
 
-@media only screen and (max-width: 600px){
-    
-    .header-text{
-        margin-top: 100%;
-        font-size: 16px;
-    }
-    .header-text h1{
-        font-size: 30px;
-    }
-    nav .fas{
-        display: block;
-        font-size: 25px;
-    }
-    nav ul{
-        background: #057a2f;
+ /* CSS for small screens*/
+ 
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: fixed;
+    height: auto;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    padding: 1rem;
+  }
+
+  .navbar ul {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul li {
+    display: none;
+    list-style: none;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .navbar ul li::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #00ff5e;
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transition: 0.5s;
+    transform: translateX(-50%);
+  }
+
+  .navbar ul li:hover::after {
+    width: 100%;
+  }
+
+  .navbar .toggle-button {
+    display: block;
+    font-size: 25px;
+    color: #00ff5e;
+    border: none;
+    border-radius: 6px;
+    background: black;
+  }
+
+  .sidemenu ul{
+    background: #057a2f;
         position: fixed;
         top: 0;
         right: -200px;
@@ -185,44 +255,15 @@ nav .fas{
         padding-top: 50px;
         z-index: 2;
         transition: right 0.5s;
-    }
-    nav ul li{
-        display: block;
-        margin: 25px;
-    }
-    nav ul .fas{
-        position: absolute;
-        top: 25px;
-        left: 25px;
-        cursor: pointer;
-    }
-    .sub-title{
-        font-size: 40px;
-    }
-    .about-col-1, .about-col-2{
-        flex-basis: 100%;
-    }
-    .about-col-1{
-        margin-bottom: 30px;
-        height: 100%;
-    }
-    .about-col-2{
-        font-size: 14px;
-    }
-    .tab-links{
-        font-size: 16px;
-        margin-right: 20px;
-    }
-    .contact-left, .contact-right{
-        flex-basis: 100%;
-    }
-    
-}
-#msg{
-    color: #00ff5e;
-    margin-top: -10px;
+  }
+  .sidemenu ul li{
     display: block;
+        margin: 25px;
+        color: #fff;
+        position: relative;
+  }
 }
+
 
  /* CSS for the header and navbar*/
 #header{
@@ -233,10 +274,8 @@ nav .fas{
 .container{
     padding: 10px 10%;
 }
-.logo{
-    width: 140px;
-}
-nav{
+
+.navbar{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -249,21 +288,21 @@ nav{
     left:0;
     right: 0;
     background: black;
-
+    padding: 1rem;
 }
-nav ul li{
+.navbar ul li{
     display: inline-block;
     list-style: none;
     margin: 10px 20px;
 }
 
-nav ul li a{
+.navbar ul li {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
     position: relative;
 }
-nav ul li a::after{
+.navbar ul li::after{
     content: '';
     width: 0;
     height: 3px;
@@ -273,8 +312,26 @@ nav ul li a::after{
     bottom: -6px;
     transition: 0.5s;
 }
-nav ul li a:hover::after{
+.navbar ul li:hover{
+    cursor: pointer;
+}
+.navbar ul li:hover::after{
     width: 100%;
+}
+.toggle-button{
+    display: none;
+}
+.sidemenu{
+    display: none; /* Hide by default on regular screens */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00ff5e;
+  flex-direction: column;
+  padding: 1rem;
+  z-index: 1; 
 }
 .header-text{
     margin-top: 20%;
@@ -452,6 +509,9 @@ nav ul li a:hover::after{
     margin: 15px;
     font-size: 25px;
 }
+.contact-left h1{
+    text-align: left;
+}
 .social-icons{
     margin-top: 30px;
     text-align: left;
@@ -496,15 +556,5 @@ form .button.btn2{
     margin-top: 20px;
     cursor: pointer;
 }
-.copyright{
-    width: 100%;
-    text-align: center;
-    padding: 25px 0;
-    background: #262626;
-    font-weight: 300;
-    margin-top: 20px;
-}
-.copyright i{
-    color: #00ff5e;
-}    
+
 </style>
