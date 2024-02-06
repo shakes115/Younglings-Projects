@@ -12,6 +12,9 @@ export default {
   name: 'App',
   components: {
     HomeCard,
+},
+mounted(){
+
 }
 }
 </script>
@@ -27,4 +30,5 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 </style>

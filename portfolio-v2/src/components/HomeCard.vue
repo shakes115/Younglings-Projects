@@ -13,20 +13,16 @@
                 <li><router-link to="/about" @click="scrollToSection('about')" class="link">About</router-link></li>
                 <li><router-link to="/portfolio" @click="scrollToSection('portfolio')" class="link">My Work</router-link></li>
                 <li><router-link to="/contact" @click="scrollToSection('contact')" class="link">Contact Me</router-link></li>
+                </ul>   
+            </div>
+
+            <div class="minibar">
+                <ul>
+                    <li><i class="fas fa-home"></i></li>
+                    <li><i class="fas fa-info"></i></li>
                 </ul>
-                <!-- Toggle button for small screens -->
-             <button @click="toggleSideMenu()" class="toggle-button">☰</button>    
             </div>
              
-            <!-- Side menu for small screens -->
-            <div v-if="showSideMenu" class="sidemenu">
-                <ul>
-                <li><router-link to="/" @click="scrollToSection('home')">Home</router-link></li>
-                <li><router-link to="/about" @click="scrollToSection('about')">About</router-link></li>
-                <li><router-link to="/mywork" @click="scrollToSection('mywork')">My Work</router-link></li>
-                <li><router-link to="/contact" @click="scrollToSection('contact')">Contact Me</router-link></li>
-            </ul>
-            </div>
             <div class="header-text">
                 <p>Software Developer</p>
                 <h1><span>Hello, I'm Shaakier<br>Railoun from South Africa.</span></h1>
@@ -208,16 +204,20 @@ export default {
 
   .navbar ul {
     width: 100%;
-    display: none;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
   }
 
   .navbar ul li {
     display: none;
     list-style: none;
-    margin: 10px 0;
+    margin: 0 0;
     text-align: center;
+    font-size: 12px;
+  }
+  .navbar ul li i{
+    display: flex;
   }
 
   .navbar ul li::after {
@@ -225,7 +225,7 @@ export default {
     width: 0;
     height: 3px;
     background: #00ff5e;
-    position: absolute;
+    position: flex;
     left: 50%;
     bottom: -6px;
     transition: 0.5s;
@@ -235,37 +235,11 @@ export default {
   .navbar ul li:hover::after {
     width: 100%;
   }
-
-  .navbar .toggle-button {
-    display: block;
-    font-size: 25px;
-    color: #00ff5e;
-    border: none;
-    border-radius: 6px;
-    background: black;
-  }
-
-  .sidemenu ul{
-    background: #057a2f;
-        position: fixed;
-        top: 0;
-        right: -200px;
-        width: 200px;
-        height: 100vh;
-        padding-top: 50px;
-        z-index: 2;
-        transition: right 0.5s;
-  }
-  .sidemenu ul li{
-    display: block;
-        margin: 25px;
-        color: #fff;
-        position: relative;
-  }
+  
 }
 
 
- /* CSS for the header and navbar*/
+ /* CSS for the header and navbar on regular screens*/
 #header{
     width: 100%;
     text-align: left;
@@ -273,6 +247,9 @@ export default {
 }
 .container{
     padding: 10px 10%;
+}
+.navbar ul li i{
+    display: none;
 }
 
 .navbar{
@@ -290,17 +267,16 @@ export default {
     background: black;
     padding: 1rem;
 }
-.navbar ul li{
-    display: inline-block;
-    list-style: none;
-    margin: 10px 20px;
-}
+
 
 .navbar ul li {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
     position: relative;
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
 }
 .navbar ul li::after{
     content: '';
@@ -318,21 +294,8 @@ export default {
 .navbar ul li:hover::after{
     width: 100%;
 }
-.toggle-button{
-    display: none;
-}
-.sidemenu{
-    display: none; /* Hide by default on regular screens */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #00ff5e;
-  flex-direction: column;
-  padding: 1rem;
-  z-index: 1; 
-}
+
+
 .header-text{
     margin-top: 20%;
     font-size: 30px;
