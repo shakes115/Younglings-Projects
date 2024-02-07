@@ -11,17 +11,12 @@
                 <ul>
                 <li><router-link to="/header" @click="scrollToSection('header')" class="link">Home</router-link></li>
                 <li><router-link to="/about" @click="scrollToSection('about')" class="link">About</router-link></li>
-                <li><router-link to="/portfolio" @click="scrollToSection('portfolio')" class="link">My Work</router-link></li>
-                <li><router-link to="/contact" @click="scrollToSection('contact')" class="link">Contact Me</router-link></li>
+                <li><router-link to="/portfolio" @click="scrollToSection('portfolio')" class="link">Projects</router-link></li>
+                <li><router-link to="/contact" @click="scrollToSection('contact')" class="link">Contact</router-link></li>
                 </ul>   
             </div>
 
-            <div class="minibar">
-                <ul>
-                    <li><i class="fas fa-home"></i></li>
-                    <li><i class="fas fa-info"></i></li>
-                </ul>
-            </div>
+            
              
             <div class="header-text">
                 <p>Software Developer</p>
@@ -76,7 +71,7 @@
 
     <div id="portfolio">
         <div class="container">
-            <h1 class="sub-title">My Work</h1>
+            <h1 class="sub-title">Projects</h1>
             <div class="work-list">
                 <div class="work">
                     <img src="../assets/CalculatorAppImg.png">
@@ -112,7 +107,7 @@
         <div class="container">
             <div class="row">
                 <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
+                    <h1 class="sub-title">Contact</h1>
                     <p><i class="fas fa-paper-plane"></i>shaakier.railoun115@gmail.com</p>
                     <p><i class="fas fa-phone-square-alt"></i>064 752 5222</p>
                     <div class="social-icons">
@@ -143,13 +138,10 @@ export default {
     name: 'HomeCard',
     data() {
     return {
-        showSideMenu: false,
+        
     };
   },
   methods:{
-    toggleSideMenu() {
-      this.showSideMenu = !this.showSideMenu;
-    },
     scrollToSection(sectionId) {
       const sectionElement = document.getElementById(sectionId);
 
@@ -204,38 +196,33 @@ export default {
 
   .navbar ul {
     width: 100%;
-    display: flex;
+    display: inline-block;
     flex-direction: row;
     align-items: center;
   }
 
   .navbar ul li {
-    display: none;
+    display: flex;
     list-style: none;
     margin: 0 0;
     text-align: center;
-    font-size: 12px;
+    
   }
-  .navbar ul li i{
+.navbar ul li router-link{
+    font-size: 15px;
+}
+}
+
+@media only screen and (max-width: 991px) {
+    .row{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+  .about-col-1{
+    size: 50%;
   }
-
-  .navbar ul li::after {
-    content: '';
-    width: 0;
-    height: 3px;
-    background: #00ff5e;
-    position: flex;
-    left: 50%;
-    bottom: -6px;
-    transition: 0.5s;
-    transform: translateX(-50%);
-  }
-
-  .navbar ul li:hover::after {
-    width: 100%;
-  }
-  
 }
 
 
@@ -248,9 +235,7 @@ export default {
 .container{
     padding: 10px 10%;
 }
-.navbar ul li i{
-    display: none;
-}
+
 
 .navbar{
     display: flex;
@@ -278,6 +263,12 @@ export default {
     list-style: none;
     margin: 10px 20px;
 }
+.navbar ul li i{
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    
+}
 .navbar ul li::after{
     content: '';
     width: 0;
@@ -296,6 +287,7 @@ export default {
 }
 
 
+
 .header-text{
     margin-top: 20%;
     font-size: 30px;
@@ -311,7 +303,7 @@ export default {
 
 /*About section */
 #about{
-    padding: 80px 0;
+    padding: 50px 0;
     color: #ababab;
 }
 .row{
@@ -322,6 +314,7 @@ export default {
 
 .about-col-1{
     flex-basis: 35%;
+   
 }
 .about-col-1 img{
     width: 100%;
