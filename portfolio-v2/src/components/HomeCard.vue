@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="work">
-                    <img src="../assets/VirtualKeyboardV1Img.png">
+                    <img src="../assets/VirtualKeyboardV1Img2.png">
                     <div class="layer">
                         <h3>Virtual Keyboard V1</h3>   
                         <p>This is a prototype virtual keyboard that I have built using JavaScript.</p>

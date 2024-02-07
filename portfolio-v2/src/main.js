@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons'
 
+
 /* add icons to the library */
 library.add(faUserSecret)
 library.add(faExternalLinkAlt)
