@@ -123,6 +123,7 @@
                     <input type="text" name="name" placeholder="Your Name" required v-model="name">
                     <input type="email" name="email" placeholder="Your Email" required v-model="email">
                     <textarea name="message" rows="6" placeholder="Your Message" v-model="message"></textarea>
+                    
                     <button id="submit" value="submit" type="submit" class="button btn2">Submit</button>
                 </form>
                 <span id="msg">{{ submitMessage }}</span>
@@ -135,7 +136,8 @@
 
 <!--Scripts-->
 <script>
-import { projectFirestore } from '../firebase/config'
+import { projectFirestore } from '../firebase/config';
+
 export default {
     name: 'HomeCard',
     data() {
@@ -168,9 +170,12 @@ export default {
             this.message = '';
 
             this.submitMessage = 'Message has been sent!';
-            }
-  },
-};
+            },
+   
+      
+    },
+  }
+
 
 </script>
 
