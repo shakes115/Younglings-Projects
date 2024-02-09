@@ -54,7 +54,8 @@
                     </div>
                     <div class="tab-contents" id="experience">
                         <ul>
-                            <li><span>2023-current</span><br>Internship at Capaciti</li>
+                            <li><span>2023-2024</span><br>Internship at Capaciti</li>
+                            <li><span>2024-current</span><br>Inernship at Younglings</li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="education">
@@ -118,13 +119,13 @@
                     <a href="/Shaakier Railoun CV.docx" download class="button btn2">Download CV</a>
                 </div>
                 <div class="contact-right"></div>
-                <form name="submit-to-google-sheet">
-                    <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="Email" placeholder="Your Email" required>
-                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                    <button type="submit" class="button btn2">Submit</button>
+                <form @submit.prevent="handleSubmit">
+                    <input type="text" name="name" placeholder="Your Name" required v-model="name">
+                    <input type="email" name="email" placeholder="Your Email" required v-model="email">
+                    <textarea name="message" rows="6" placeholder="Your Message" v-model="message"></textarea>
+                    <button id="submit" value="submit" type="submit" class="button btn2">Submit</button>
                 </form>
-                <span id="msg"></span>
+                <span id="msg">{{ submitMessage }}</span>
             </div>
         </div>
     </div>
@@ -134,11 +135,15 @@
 
 <!--Scripts-->
 <script>
+import { projectFirestore } from '../firebase/config'
 export default {
     name: 'HomeCard',
     data() {
     return {
-        
+        name:'',
+        email:'',
+        message:'',
+        submitMessage:'',
     };
   },
   methods:{
@@ -148,7 +153,22 @@ export default {
       if (sectionElement) {
         sectionElement.scrollIntoView({ behavior: 'smooth' });
       }
-    }
+    },
+    handleSubmit() {
+        let userMessage = {
+            name: this.name,
+            email: this.email,
+            message: this.message
+            }
+            projectFirestore.collection('userMessages').add(userMessage)
+
+            //Clear textboxes after submission
+            this.name = '';
+            this.email = '';
+            this.message = '';
+
+            this.submitMessage = 'Message has been sent!';
+            }
   },
 };
 
