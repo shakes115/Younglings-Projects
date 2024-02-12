@@ -107,8 +107,8 @@
     <div id="contact">
         <div class="container">
             <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact</h1>
+                <h1 class="sub-title">Contact Me</h1>
+                <div class="contact-left"> 
                     <p><i class="fas fa-paper-plane"></i>shaakier.railoun115@gmail.com</p>
                     <p><i class="fas fa-phone-square-alt"></i>064 752 5222</p>
                     <div class="social-icons">
@@ -123,7 +123,7 @@
                     <input type="text" name="name" placeholder="Your Name" required v-model="name">
                     <input type="email" name="email" placeholder="Your Email" required v-model="email">
                     <textarea name="message" rows="6" placeholder="Your Message" v-model="message"></textarea>
-                    
+                    <div class="g-recaptcha"></div>
                     <button id="submit" value="submit" type="submit" class="button btn2">Submit</button>
                 </form>
                 <span id="msg">{{ submitMessage }}</span>
@@ -136,7 +136,9 @@
 
 <!--Scripts-->
 <script>
+/*global grecaptcha */
 import { projectFirestore } from '../firebase/config';
+
 
 export default {
     name: 'HomeCard',
@@ -146,6 +148,7 @@ export default {
         email:'',
         message:'',
         submitMessage:'',
+        recaptchaToken:null,
     };
   },
   methods:{
@@ -156,13 +159,23 @@ export default {
         sectionElement.scrollIntoView({ behavior: 'smooth' });
       }
     },
-    handleSubmit() {
-        let userMessage = {
+    async handleSubmit() {
+        try{
+            //check reCAPTCHA response
+            const recaptchaResponse = await grecaptcha.execute('6LeOrG8pAAAAAEMBCWRhTBazsilQD_jbP4CAoJLl', {action:'submit'});
+
+            if (!recaptchaResponse){
+                console.error('reCAPTCHA verification failed!');
+                return;
+            }
+            let userMessage = {
             name: this.name,
             email: this.email,
-            message: this.message
+            message: this.message,
+            recaptchaResponse: recaptchaResponse,
             }
             projectFirestore.collection('userMessages').add(userMessage)
+            
 
             //Clear textboxes after submission
             this.name = '';
@@ -170,11 +183,23 @@ export default {
             this.message = '';
 
             this.submitMessage = 'Message has been sent!';
+        } catch(error){
+            console.error('Error submitting form', error);
+            this.submitMessage = 'Error submitting form. Please try again';
+        }
+        
             },
    
       
     },
-  }
+    mounted(){
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js?render=6LeOrG8pAAAAAEMBCWRhTBazsilQD_jbP4CAoJLl';
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    },
+  };
 
 
 </script>
