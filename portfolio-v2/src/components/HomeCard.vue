@@ -119,7 +119,7 @@
                     <a href="/Shaakier Railoun CV.docx" download class="button btn2">Download CV</a>
                 </div>
                 <div class="contact-right"></div>
-                <form @submit.prevent="handleSubmit">
+                <form :action="FORM_ENDPOINT" @submit="handleSubmit" method="POST">
                     <input type="text" name="name" placeholder="Your Name" required v-model="name">
                     <input type="email" name="email" placeholder="Your Email" required v-model="email">
                     <textarea name="message" rows="6" placeholder="Your Message" v-model="message"></textarea>
@@ -149,6 +149,8 @@ export default {
         message:'',
         submitMessage:'',
         recaptchaToken:null,
+        submitted:false,
+        FORM_ENDPOINT: "https://public.herotofu.com/v1/136cffa0-ca57-11ee-a1c1-7755cb567bfd",
     };
   },
   methods:{
@@ -181,15 +183,18 @@ export default {
             this.name = '';
             this.email = '';
             this.message = '';
-
             this.submitMessage = 'Message has been sent!';
+
+            setTimeout(() => {
+                this.submitted = true;
+            }, 500);
         } catch(error){
             console.error('Error submitting form', error);
             this.submitMessage = 'Error submitting form. Please try again';
         }
         
             },
-   
+    
       
     },
     mounted(){

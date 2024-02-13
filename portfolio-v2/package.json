@@ -19,6 +19,7 @@
     "emailjs-com": "^3.2.0",
     "file-loader": "^6.2.0",
     "firebase": "^8.6.5",
+    "nodemailer": "^6.9.9",
     "vue": "^3.2.13",
     "vue-recaptcha": "^3.0.0-alpha.6"
   },
