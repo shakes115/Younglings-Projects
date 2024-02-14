@@ -6,7 +6,7 @@
         </head>
         <div id="header">
         <div class="container">
-            <!-- Navbar for regular screens -->
+            <!-- Navbar code -->
             <div class="navbar">
                 <ul>
                 <li><router-link to="/header" @click="scrollToSection('header')" class="link">Home</router-link></li>
@@ -16,8 +16,6 @@
                 </ul>   
             </div>
 
-            
-             
             <div class="header-text">
                 <p>Software Developer</p>
                 <h1><span>Hello, I'm Shaakier<br>Railoun from South Africa.</span></h1>
@@ -119,6 +117,7 @@
                     <a href="/Shaakier Railoun CV.docx" download class="button btn2">Download CV</a>
                 </div>
                 <div class="contact-right"></div>
+                <!--Contact Form-->
                 <form :action="FORM_ENDPOINT" @submit="handleSubmit" method="POST">
                     <input type="text" name="name" placeholder="Your Name" required v-model="name">
                     <input type="email" name="email" placeholder="Your Email" required v-model="email">
@@ -154,6 +153,7 @@ export default {
     };
   },
   methods:{
+    //Scrolls to section when user clicks on the corresponding link
     scrollToSection(sectionId) {
       const sectionElement = document.getElementById(sectionId);
 
@@ -163,7 +163,7 @@ export default {
     },
     async handleSubmit() {
         try{
-            //check reCAPTCHA response
+            //Check reCAPTCHA response
             const recaptchaResponse = await grecaptcha.execute('6LeOrG8pAAAAAEMBCWRhTBazsilQD_jbP4CAoJLl', {action:'submit'});
 
             if (!recaptchaResponse){
@@ -185,9 +185,9 @@ export default {
             this.message = '';
             this.submitMessage = 'Message has been sent!';
 
-            setTimeout(() => {
-                this.submitted = true;
-            }, 500);
+        setTimeout(() => {
+            this.submitted = true;
+        }, 500);
         } catch(error){
             console.error('Error submitting form', error);
             this.submitMessage = 'Error submitting form. Please try again';
