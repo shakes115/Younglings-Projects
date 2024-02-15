@@ -4,6 +4,8 @@
         <head>
             <title>Personal Portfolio - Shaakier Railoun</title>
         </head>
+        <div id="progressbar"></div>
+        <div id="scrollPath"></div>
         <div id="header">
         <div class="container">
             <!-- Navbar code -->
@@ -150,6 +152,9 @@ export default {
         recaptchaToken:null,
         submitted:false,
         FORM_ENDPOINT: "https://public.herotofu.com/v1/136cffa0-ca57-11ee-a1c1-7755cb567bfd",
+        progress:null,
+        totalHeight:null,
+        progressHeight:null
     };
   },
   methods:{
@@ -203,6 +208,13 @@ export default {
         script.async = true;
         script.defer = true;
         document.head.appendChild(script);
+
+        let progress = document.getElementById('progressbar');
+        letTotalheight = document.body.scrollHeight - window.innerHeight;
+        window.onscroll = function() {
+            let progressHeight = (window.pageYOffset / totalHeight) * 100;
+            progress.style.height = progressHeight + "%";
+        }
     },
   };
 
@@ -228,7 +240,61 @@ export default {
     box-sizing: border-box;
     font-weight: 600;
 }
-
+::-webkit-scrollbar
+{
+    width: 0;
+}
+#scrollPath
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+}
+#progressbar
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    animation: animate 5s linear infinite;
+}
+@keyframes animate
+{
+    0%,100%
+    {
+        filter: hue-rotate(0deg);
+    }
+    50%
+    {
+        filter: hue-rotate(360deg);
+    }
+}
+#progressbar:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(10px);
+}
+#progressbar:after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(30px);
+}
 
  /* CSS for small screens*/
  
@@ -340,8 +406,6 @@ export default {
 .navbar ul li:hover::after{
     width: 100%;
 }
-
-
 
 .header-text{
     margin-top: 20%;
