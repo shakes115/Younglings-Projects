@@ -209,8 +209,9 @@ export default {
         script.defer = true;
         document.head.appendChild(script);
 
+        //script for custom scrollbar
         let progress = document.getElementById('progressbar');
-        letTotalheight = document.body.scrollHeight - window.innerHeight;
+        let totalHeight = document.body.scrollHeight - window.innerHeight;
         window.onscroll = function() {
             let progressHeight = (window.pageYOffset / totalHeight) * 100;
             progress.style.height = progressHeight + "%";
@@ -240,6 +241,7 @@ export default {
     box-sizing: border-box;
     font-weight: 600;
 }
+/* Css for custom scrollbar*/
 ::-webkit-scrollbar
 {
     width: 0;
@@ -251,7 +253,7 @@ export default {
     right: 0;
     width: 10px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(#0062ff, #03ffaf, #00ff5e, 0.05);
 }
 #progressbar
 {
@@ -259,7 +261,7 @@ export default {
     top: 0;
     right: 0;
     width: 10px;
-    background: linear-gradient(to top, #008aff,#00ffe7);
+    background: linear-gradient(to top, #00ff5e,#00ff5e);
     animation: animate 5s linear infinite;
 }
 @keyframes animate
@@ -281,7 +283,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #008aff,#00ffe7);
+    background: linear-gradient(to top, #00ff5e,#00ff5e);
     filter: blur(10px);
 }
 #progressbar:after
@@ -292,7 +294,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #008aff,#00ffe7);
+    background: linear-gradient(to top, #00ff5e,#00ff5e);
     filter: blur(30px);
 }
 
