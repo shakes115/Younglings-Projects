@@ -108,14 +108,16 @@
         <div class="container">
             <div class="row">
                 <h1 class="sub-title">Contact Me</h1>
-                <div class="contact-left"> 
+                <div class="contact-left">
+                    
+                    <div class="social-icons">
                     <p><i class="fas fa-paper-plane"></i>shaakier.railoun115@gmail.com</p>
                     <p><i class="fas fa-phone-square-alt"></i>064 752 5222</p>
-                    <div class="social-icons">
                         <a href="https://www.linkedin.com/in/shaakier-railoun-28902523b/"><i class="fab fa-linkedin"></i> LinkedIn</a>
                         <br>
                         <a href="https://github.com/shakes115?tab=repositories"><i class="fab fa-github"></i> Github</a>
                     </div>
+                
                     <a href="/Shaakier Railoun CV.docx" download class="button btn2">Download CV</a>
                 </div>
                 <div class="contact-right"></div>
