@@ -305,6 +305,7 @@ export default {
     .navbar{
         white-space: nowrap;
         overflow-x: auto;
+        overflow-y: hidden;
     }
 }
  
