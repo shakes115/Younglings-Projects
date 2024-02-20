@@ -301,6 +301,12 @@ export default {
 }
 
  /* CSS for small screens*/
+@media only screen and (max-width: 392px){
+    .navbar{
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+}
  
 @media only screen and (max-width: 600px) {
   .navbar {
