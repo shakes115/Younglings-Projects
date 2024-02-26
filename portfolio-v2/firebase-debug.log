@@ -1,0 +1,38 @@
+[debug] [2024-02-20T10:28:52.361Z] ----------------------------------------------------------------------
+[debug] [2024-02-20T10:28:52.367Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Shaakier\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2024-02-20T10:28:52.368Z] CLI Version:   13.2.0
+[debug] [2024-02-20T10:28:52.368Z] Platform:      win32
+[debug] [2024-02-20T10:28:52.368Z] Node Version:  v20.11.0
+[debug] [2024-02-20T10:28:52.369Z] Time:          Tue Feb 20 2024 12:28:52 GMT+0200 (South Africa Standard Time)
+[debug] [2024-02-20T10:28:52.369Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-20T10:28:52.557Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-20T10:28:52.557Z] > authorizing via signed-in user (shaakier.railoun115@gmail.com)
+[debug] [2024-02-20T10:28:52.557Z] [iam] checking project portfolio-v2-a12fd for permissions ["firebase.projects.get"]
+[debug] [2024-02-20T10:28:52.558Z] > refreshing access token with scopes: []
+[debug] [2024-02-20T10:28:52.561Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-02-20T10:28:52.561Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-20T10:28:53.095Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-02-20T10:28:53.097Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-20T10:28:53.238Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-v2-a12fd:testIamPermissions [none]
+[debug] [2024-02-20T10:28:53.239Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-v2-a12fd:testIamPermissions x-goog-quota-user=projects/portfolio-v2-a12fd
+[debug] [2024-02-20T10:28:53.240Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-v2-a12fd:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-02-20T10:28:55.236Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-v2-a12fd:testIamPermissions 200
+[debug] [2024-02-20T10:28:55.236Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-v2-a12fd:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-02-20T10:28:55.237Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-v2-a12fd [none]
+[debug] [2024-02-20T10:28:56.009Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-v2-a12fd 200
+[debug] [2024-02-20T10:28:56.009Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-v2-a12fd {"projectId":"portfolio-v2-a12fd","projectNumber":"941162992088","displayName":"Portfolio-V2","name":"projects/portfolio-v2-a12fd","resources":{"hostingSite":"portfolio-v2-a12fd"},"state":"ACTIVE","etag":"1_e4d156bf-2237-4512-8b2d-d43945ddfe98"}
+[info] 
+[info] === Serving from 'C:\Users\Shaakier\Documents\Younglings projects\portfolio-v2'...
+[info] 
+[debug] [2024-02-20T10:28:56.013Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/portfolio-v2-a12fd/sites 
+[debug] [2024-02-20T10:28:58.388Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/portfolio-v2-a12fd/sites 200
+[debug] [2024-02-20T10:28:58.389Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/portfolio-v2-a12fd/sites {"sites":[{"name":"projects/portfolio-v2-a12fd/sites/portfolio-v2-a12fd","defaultUrl":"https://portfolio-v2-a12fd.web.app","appId":"1:941162992088:web:e1f792f70ccd75456ba2ad","type":"DEFAULT_SITE"}]}
+[debug] [2024-02-20T10:28:58.392Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-v2-a12fd/webApps/1:941162992088:web:e1f792f70ccd75456ba2ad/config [none]
+[debug] [2024-02-20T10:28:59.586Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-v2-a12fd/webApps/1:941162992088:web:e1f792f70ccd75456ba2ad/config 200
+[debug] [2024-02-20T10:28:59.586Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-v2-a12fd/webApps/1:941162992088:web:e1f792f70ccd75456ba2ad/config {"projectId":"portfolio-v2-a12fd","appId":"1:941162992088:web:e1f792f70ccd75456ba2ad","storageBucket":"portfolio-v2-a12fd.appspot.com","apiKey":"AIzaSyB-QD8HGEJmAl_Wb0xwvTR_OjSBHA_pOCg","authDomain":"portfolio-v2-a12fd.firebaseapp.com","messagingSenderId":"941162992088"}
+[debug] [2024-02-20T10:28:59.618Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-v2-a12fd [none]
+[debug] [2024-02-20T10:28:59.947Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-v2-a12fd 200
+[debug] [2024-02-20T10:28:59.947Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-v2-a12fd {"projectId":"portfolio-v2-a12fd","projectNumber":"941162992088","displayName":"Portfolio-V2","name":"projects/portfolio-v2-a12fd","resources":{"hostingSite":"portfolio-v2-a12fd"},"state":"ACTIVE","etag":"1_e4d156bf-2237-4512-8b2d-d43945ddfe98"}
+[info] i  hosting[portfolio-v2-a12fd]: Serving hosting files from: dist {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist\u001b[22m"}}
+[info] +  hosting[portfolio-v2-a12fd]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
