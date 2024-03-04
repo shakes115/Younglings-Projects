@@ -53,8 +53,8 @@ watch(weights, newWeights => {
             data: ws
               .sort((a, b) => a.date - b.date)
               .map(w => w.weight),
-            backgroundColor: 'rgba(255, 105, 180, 0.2)',
-            borderColor: 'rgb(255, 105, 180)',
+            backgroundColor: 'rgb(13, 185, 13)',
+            borderColor: 'rgb(13, 185, 13)',
             borderWidth: 1,
             fill: true
           }
